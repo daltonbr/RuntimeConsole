@@ -1,0 +1,15 @@
+{
+    "name": "com.daltonlima.runtimeconsole",
+    "references": [
+        "GUID:9bd19361493231a44bcf8c8e91dcf3c8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
