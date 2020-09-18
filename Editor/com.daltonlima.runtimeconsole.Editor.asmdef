@@ -1,0 +1,18 @@
+{
+    "name": "com.daltonlima.runtimeconsole.Editor",
+    "references": [
+        "GUID:9bd19361493231a44bcf8c8e91dcf3c8",
+        "GUID:925296cd45cc77242b05e8238b2ab7c2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
-//using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,7 +41,7 @@ namespace DaltonLima.RuntimeConsole
         private Queue<Log> _infoLogs;
         private Queue<Log> _warnLogs;
         private Queue<Log> _errorLogs;
-
+        
         private void OnEnable()
         {
             _infoLogs = new Queue<Log>(1000);
