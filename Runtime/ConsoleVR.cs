@@ -22,10 +22,10 @@ namespace DaltonLima.RuntimeConsole
         [SerializeField] private Text stackText;
         
         // [SerializeField] private TMP_Text textPro;
-        private const string Red = "#FF0000";
-        private const string Yellow = "#FFFF00";
-        private const string White = "#FFFFFF";
-        private const string Black = "#000000";
+        private const string Red    = "#E97648";
+        private const string Yellow = "#F3C337";
+        private const string White  = "#FFFFFF";
+        private const string Black  = "#000000";
 
         // Buttons
         [SerializeField] private Button pauseButton;
@@ -83,7 +83,7 @@ namespace DaltonLima.RuntimeConsole
         {
             var log = new Log(logString, stackTrace, type);
             
-            string color = Black;
+            string color = White;
             switch (type)
             {
                 case LogType.Error:
@@ -104,7 +104,7 @@ namespace DaltonLima.RuntimeConsole
                     _infoLogs.Enqueue(log);
                     var infoCount = _infoLogs.Count;
                     infoCountText.text = infoCount < 1000 ? infoCount.ToString() : "999+";
-                    //color = Black;
+                    //color = White;
                     break;
                 case LogType.Exception:
                     break;
