@@ -1,7 +1,8 @@
 {
     "name": "com.daltonlima.runtimeconsole",
     "references": [
-        "GUID:9bd19361493231a44bcf8c8e91dcf3c8"
+        "GUID:9bd19361493231a44bcf8c8e91dcf3c8",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

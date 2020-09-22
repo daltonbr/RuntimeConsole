@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 namespace DaltonLima.RuntimeConsole
 {
@@ -12,6 +13,9 @@ namespace DaltonLima.RuntimeConsole
         private const string ScrollDown = "▼";
         private const string ClearView = "CLEAR";
 
+        [SerializeField] private InputAction toggleLoggerAction;
+        [HideInInspector][SerializeField] private InputActionMap loggerActionMap;
+        
         public static bool IsPersistent = true;
 
         private static ScreenLogger instance;
@@ -22,6 +26,20 @@ namespace DaltonLima.RuntimeConsole
 
         private GUILayoutOption buttonWidth;
         private GUILayoutOption buttonHeight;
+
+        private void SetupInput()
+        {
+            loggerActionMap.AddAction(toggleLoggerAction.name,
+                toggleLoggerAction.type,
+                toggleLoggerAction.bindings.ToString());
+        
+            toggleLoggerAction.performed += ToggleLoggerAction;
+        }
+
+        private void ToggleLoggerAction(InputAction.CallbackContext context)
+        {
+            showLog = !showLog;
+        }
 
         private class LogMessage
         {
@@ -127,6 +145,8 @@ namespace DaltonLima.RuntimeConsole
 
         private void Awake()
         {
+            SetupInput();
+
             var obj = FindObjectsOfType<ScreenLogger>();
 
             if (obj.Length > 1)
@@ -168,6 +188,9 @@ namespace DaltonLima.RuntimeConsole
 
         private void OnEnable()
         {
+            toggleLoggerAction.Enable();
+            loggerActionMap.Enable();
+            
             if (!showInEditor && Application.isEditor) return;
             queue = new Queue<LogMessage>();
             Application.logMessageReceived += HandleLog;
@@ -175,6 +198,9 @@ namespace DaltonLima.RuntimeConsole
 
         private void OnDisable()
         {
+            toggleLoggerAction.Disable();
+            loggerActionMap.Disable();
+            
             // If destroyed because already exists, don't need to de-register callback
             if (destroying) return;
             Application.logMessageReceived -= HandleLog;
